@@ -70,42 +70,55 @@
             font-size: 1.2em;
         }
 
+        /* Adaptación para dispositivos pequeños */
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+                padding: 0 10px;
+            }
+        }
+
         /* Separador con imagen fija y efecto amarillo */
-.separador-animado {
-    position: relative;
-    height: 150px;
-    overflow: hidden;
-    background: url('img/fondo.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+        .separador-animado {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            background: url('img/fondo.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
 
-.separador-animado::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(219, 166, 99, 0.5); /* Color amarillo con transparencia */
-    background-image: radial-gradient(circle, rgba(219, 166, 99, 0.5) 0%, rgba(219, 166, 99, 0.2) 100%),
-                      url('img/puntos.png'); /* Imagen de textura de puntos */
-    background-blend-mode: multiply; /* Mezcla el color y la textura */
-    z-index: 1;
-}
+        .separador-animado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(219, 166, 99, 0.5); /* Color amarillo con transparencia */
+            background-image: radial-gradient(circle, rgba(219, 166, 99, 0.5) 0%, rgba(219, 166, 99, 0.2) 100%),
+                              url('img/puntos.png'); /* Imagen de textura de puntos */
+            background-blend-mode: multiply; /* Mezcla el color y la textura */
+            z-index: 1;
+        }
 
-.separador-animado .contenido {
-    position: relative;
-    text-align: center;
-    font-family: 'Donkin', sans-serif;
-    font-size: 2.5em;
-    font-weight: bold;
-    z-index: 2;
-}
+        .separador-animado .contenido {
+            position: relative;
+            text-align: center;
+            font-family: 'Donkin', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            z-index: 2;
+        }
+
         /* Sección de proyectos */
         .proyectos {
             padding: 50px 0;
@@ -229,14 +242,15 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 José | Todos los derechos reservados</p>
+        <p>&copy; 2024 José. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Mostrar la página con una animación de aparición
-        window.addEventListener('load', () => {
+        // Añadir la clase 'loaded' al body cuando la página haya terminado de cargar
+        window.addEventListener('load', function() {
             document.body.classList.add('loaded');
         });
     </script>
+
 </body>
 </html>
