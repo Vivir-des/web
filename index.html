@@ -4,126 +4,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Jose Osorio</title>
-    <!-- Solo un Bootstrap -->
+    <title>Portafolio Vivir</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS Personalizado -->
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" href="img/vivir_iso.png" type="image/x-icon">
-    <!-- Fuente Donkin -->
-    <link href="https://fonts.googleapis.com/css2?family=Donkin:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos revisados */
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             color: #333;
+            margin: 0;
+            padding: 0;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
 
+        /* Mostrar la página cuando esté lista */
         body.loaded {
             opacity: 1;
         }
 
+        /* Estilos del Navbar */
         .navbar {
             background-color: #BC1825;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            transition: all 0.3s ease;
         }
 
+        .navbar.scrolled .navbar-brand {
+            text-align: center;
+            width: 100%;
+            transform: translateX(0%);
+        }
+
+        .navbar-brand {
+            transition: all 0.3s ease;
+            width: auto;
+            transform: translateX(0%);
+        }
+
+        .navbar-brand img {
+            width: 100px;
+            /* Ajusta el tamaño del logo */
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            width: 80px;
+            /* Tamaño del logo cuando está centrado */
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        /* Hero section con imagen de fondo y recuadro */
         .hero {
             height: 100vh;
-            background: url('img/HERO.png') no-repeat center center / cover;
+            background: url('img/HERO.png') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-size: cover;
         }
 
-        .recuadro {
+        .hero .recuadro {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            max-width: 90%;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .separador-animado {
-            position: relative;
-            height: 150px;
-            background: url('img/fondo.jpg') no-repeat center center / cover;
+        .hero h1 {
+            font-size: 2.5em;
+            margin: 0;
         }
 
+        .hero p {
+            font-size: 1em;
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+                padding: 0 15px;
+            }
+        }
+
+        /* Sección de proyectos */
+        .proyectos {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .proyectos h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Tarjetas de proyectos */
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
         footer {
             background-color: #333;
             color: white;
             padding: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/vivir_iso.png" alt="Logo"></a>
+            <a class="navbar-brand" href="#">
+                <img src="img/vivir_iso.png" alt="Logo" style="width: 50px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Sección Hero -->
     <section class="hero">
         <div class="recuadro">
-            <h1>BIENVENIDO</h1>
-            <p>¡Hola! Soy José, ilustrador, diseñador gráfico y programador de 19 años...</p>
+            <h1 style="font-weight: bold;">
+                BIENVENIDO
+            </h1>
+            <p>¡Hola! Soy José, ilustrador, diseñador gráfico y programador de 19 años, residente en Colombia. Mi
+                enfoque principal está en el diseño editorial, la ilustración para entornos infantiles y la programación
+                de páginas web.</p>
         </div>
     </section>
 
-    <!-- Proyectos -->
-    <div class="container mt-5">
-        <h2 class="text-center">Proyectos Editoriales</h2>
+    <!-- Sección de Proyectos -->
+    <div class="container">
         <div class="row">
-            <!-- Proyecto 1 -->
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <a href="https://www.behance.net/gallery/173654335/Mi-amigo-Bolivar-Illustrated-pages">
-                        <img src="img/mi_amigo_bolivar.PNG" class="card-img-top" alt="Mi Amigo Bolívar">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Mi Amigo Bolívar</h5>
-                        <p class="card-text">Historia centrada en la amistad y la tolerancia...</p>
+            <div class="col-lg-12">
+                <section class="container image-text-section">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <a href="pagina-proyecto.html" class="image-button">
+                                    <div class="image-container">
+                                        <img src="img/mi_amigo_bolivar.PNG" alt="Imagen del Proyecto" class="card-img">
+                                        <div class="overlay">
+                                            <span>Click para ver el proyecto</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title">MI AMIGO BOLÍVAR</h2>
+                                    <p class="card-text">"Mi amigo Bolívar" es una historia centrada en la importancia de
+                                        la amistad y la tolerancia.</p>
+                                    <p class="card-participants"><strong>Participantes:</strong> José Osorio, Nathaly
+                                        "Aluna" Martínez</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Proyecto 2 -->
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <a href="https://www.behance.net/gallery/173654335/Telar-Violeta">
-                        <img src="img/telar_violeta.PNG" class="card-img-top" alt="Telar Violeta">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Telar Violeta</h5>
-                        <p class="card-text">Un proyecto que busca...</p>
-                    </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 José Osorio</p>
+        <p>&copy; 2024 José. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        window.addEventListener('load', () => {
+        // Añadir la clase 'loaded' al body cuando la página haya terminado de cargar
+        window.addEventListener('load', function () {
             document.body.classList.add('loaded');
         });
+
+        // Efecto para centrar el logo cuando se hace scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
     </script>
+
 </body>
 
 </html>
